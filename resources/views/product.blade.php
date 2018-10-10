@@ -11,7 +11,7 @@
                     </div>
                 @endif
                 <div class="row">
-                    <a href="/add-product">add</a>
+                    <a href="{{route('add.product')}}">add</a>
                 </div>
                 <div class="row">
                     <div class="product_heading_name"><h2>{{$product->name}}</h2></div>

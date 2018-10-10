@@ -13,14 +13,27 @@
 
 Route::get('/home', 'HomeController@index')->name('home')->middleware('admin');
 
-Route::get('/add-product','ProductController@create');
-Route::post('add-product-store','ProductController@store');
+Route::group(['prefix'=>'admin'],function (){
+    Route::get('add-product',['as'=>'add.product' , 'uses' => 'ProductController@create']);
+    Route::post('add-product-store',['as'=>'product.store' , 'uses' =>'ProductController@store']);
+
+});
+
+
 
 Route::group(['middleware' => 'web'],function (){
-    Route::get('/', function () {return view('welcome');});
+
     Auth::routes();
-    Route::get('/product/{product}','ProductController@show');
-    Route::get('page',function (){return view('page');});
-    Route::get('boot',function (){return view('boot');});
+    Route::get('/product/{product}', ['as'=>'show.product', 'uses'=>'ProductController@show']);
+
+    Route::get('/', function () {
+        return view('welcome');
+    });
+    Route::get('page',function (){
+        return view('page');
+    });
+    Route::get('boot',function (){
+        return view('boot');
+    });
 });
 

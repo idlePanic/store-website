@@ -12,7 +12,7 @@
                 @endif
 
 
-                    {!! Form::open(['url'=>'add-product-store']) !!}
+                    {!! Form::open(['url'=>'admin/add-product-store']) !!}
                     {!! Form::text('name'); !!}
                     {!! Form::text('price'); !!}
                     {{--{!! Form::select('cat_id',--}}
