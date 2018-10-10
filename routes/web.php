@@ -27,6 +27,8 @@ Route::group(['middleware' => 'web'],function (){
     Route::get('/category',['as'=>'category' , 'uses'=>'CategoryController@show']);
     Route::get('/category/{category}',['as'=>'single.category' , 'uses'=>'CategoryController@single_cat']);
     Route::get('category/product/{product}', ['as'=>'show.product', 'uses'=>'ProductController@show']);
+    Route::get('/product/{comment}/edit','CommentController@edit');
+    Route::patch('/product/{comment}/edit/store','CommentController@store');
 
     Route::get('/', function () {
         return view('welcome');

@@ -41,4 +41,9 @@ class User extends Authenticatable
     {
         return $this->belongsToMany(Role::class);
     }
+
+    public function owns($related)
+    {
+        return $this->id == $related->user_id;
+    }
 }
