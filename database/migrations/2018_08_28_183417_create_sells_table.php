@@ -36,7 +36,7 @@ class CreateSellsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('sells');
         Schema::dropIfExists('sell_user');
+        Schema::dropIfExists('sells');
     }
 }
