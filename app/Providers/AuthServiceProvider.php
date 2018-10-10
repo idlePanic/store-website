@@ -13,7 +13,7 @@ class AuthServiceProvider extends ServiceProvider
      * @var array
      */
     protected $policies = [
-        'App\Model' => 'App\Policies\ModelPolicy',
+        \App\comment::class => \App\Policies\CommentPolicy::class,
     ];
 
     /**
@@ -25,9 +25,9 @@ class AuthServiceProvider extends ServiceProvider
     {
         $this->registerPolicies();
 
-        Gate::define('edit-comments', function ($user , $comment){
+//        Gate::define('edit-comments', function ($user , $comment){
 //            return $user->id == $comment->user_id;
-            return $user->owns($comment);
-        });
+//            return $user->owns($comment);
+//        });
     }
 }

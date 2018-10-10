@@ -12,10 +12,10 @@ class CommentController extends Controller
     public function edit(Comment $comment)
     {
         auth()->loginUsingId(10);
-        if(Gate::denies('edit-comments' , $comment)){
+        if(Gate::denies('edit_comments' , $comment)){
             abort(403,'Sorry this Page does not belong to you');
         }
-//        $this->authorize('edit-comments', $comment);
+//        $this->authorize('edit_comments', $comment);
 
         return view('comment_edit',compact('comment'));
     }

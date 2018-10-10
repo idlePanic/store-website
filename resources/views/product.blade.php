@@ -103,7 +103,7 @@
                                             <p>
                                                 <a class="float-right btn btn-outline-primary ml-2"> <i class="fa fa-reply"></i> Reply</a>
                                                 <a class="float-right btn text-white btn-danger"> <i class="fa fa-heart"></i> Like</a>
-                                                @can('edit-comments' ,$comment)
+                                                @can('edit_comments' ,$comment)
                                                 <a href="/product/{{$comment->id}}/edit" class="float-right btn text-white btn-success"> <i class="fa fa-pencil"></i> Edit Comment</a>
                                                 @endcan
                                             </p>
