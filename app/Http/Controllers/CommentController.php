@@ -11,7 +11,8 @@ class CommentController extends Controller
 {
     public function edit(Comment $comment)
     {
-        auth()->loginUsingId(10);
+//        auth()->loginUsingId(10);
+
         if(Gate::denies('edit_comments' , $comment)){
             abort(403,'Sorry this Page does not belong to you');
         }

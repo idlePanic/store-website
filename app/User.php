@@ -2,7 +2,9 @@
 
 namespace App;
 
+
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Support\Collection;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class User extends Authenticatable
@@ -46,4 +48,21 @@ class User extends Authenticatable
     {
         return $this->id == $related->user_id;
     }
+
+    public function hasRole($role)
+    {
+        if (is_string($role)) {
+            return $this->roles->contains('name', $role);
+        }
+//        return !! $role->intersect($this->roles)->count;
+        foreach ($role as $r) {
+            if($this->hasRole($r->name)){
+                return true;
+            }
+            else{
+                return false;
+            }
+    }
+        }
+
 }

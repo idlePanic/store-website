@@ -10,9 +10,11 @@
                         {{ session('status') }}
                     </div>
                 @endif
-                <div class="row">
-                    <a href="{{route('add.product')}}">add</a>
-                </div>
+                @can('adding_product')
+                    <div class="row">
+                        <a href="{{route('add.product')}}">add</a>
+                    </div>
+                @endcan
                 <div class="row">
                     <div class="product_heading_name"><h2>{{$product->name}}</h2></div>
                 </div>
