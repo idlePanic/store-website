@@ -24,7 +24,9 @@ Route::group(['prefix'=>'admin'],function (){
 Route::group(['middleware' => 'web'],function (){
 
     Auth::routes();
-    Route::get('/product/{product}', ['as'=>'show.product', 'uses'=>'ProductController@show']);
+    Route::get('/category',['as'=>'category' , 'uses'=>'CategoryController@show']);
+    Route::get('/category/{category}',['as'=>'single.category' , 'uses'=>'CategoryController@single_cat']);
+    Route::get('category/product/{product}', ['as'=>'show.product', 'uses'=>'ProductController@show']);
 
     Route::get('/', function () {
         return view('welcome');
