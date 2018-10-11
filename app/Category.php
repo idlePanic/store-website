@@ -10,4 +10,9 @@ class Category extends Model
     {
         return $this->hasMany(Product::class);
     }
+
+    public function features()
+    {
+        return $this->belongsToMany(Feature::class);
+    }
 }
