@@ -24,6 +24,17 @@ class RouteServiceProvider extends ServiceProvider
     public function boot()
     {
         //
+        Route::bind('user',function ($name){
+            return \App\User::where('name',$name)->firstOrFail();
+        });
+
+        Route::bind('product',function ($product){
+           return \App\Product::where('name', $product)->firstOrFail();
+        });
+
+        Route::bind('category',function ($category){
+            return \App\Category::where('name' , $category)->firstOrFail();
+        });
 
         parent::boot();
     }

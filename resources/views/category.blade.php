@@ -16,7 +16,7 @@
                     </div>
                     <div class="card-body">
                         @foreach($categories as $category)
-                            <div><a href="/category/{{$category->id}}">{{$category->name}}</a></div>
+                            <div><a href="/category/{{$category->name}}">{{$category->name}}</a></div>
                         @endforeach
                     </div>
                 </div>
