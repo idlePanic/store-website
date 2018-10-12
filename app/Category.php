@@ -15,4 +15,8 @@ class Category extends Model
     {
         return $this->belongsToMany(Feature::class);
     }
+    public function getNameAttribute($value)
+    {
+        return ucfirst($value);
+    }
 }
