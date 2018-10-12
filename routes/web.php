@@ -11,6 +11,9 @@
 |
 */
 
+use App\Events\UserWasBanned;
+use App\User;
+
 Route::get('/home', 'HomeController@index')->name('home')->middleware('admin');
 
 Route::group(['prefix'=>'admin'],function (){
@@ -24,6 +27,14 @@ Route::group(['prefix'=>'admin'],function (){
 Route::group(['middleware' => 'web'],function (){
 
     Auth::routes();
+
+    Route::get(/**
+     *
+     */
+        'event', function (){
+        event(new UserWasBanned(new User()));
+    });
+
     Route::get('/category',['as'=>'category' , 'uses'=>'CategoryController@show']);
     Route::get('/category/{category}',['as'=>'single.category' , 'uses'=>'CategoryController@single_cat']);
     Route::get('category/product/{product}', ['as'=>'show.product', 'uses'=>'ProductController@show']);
