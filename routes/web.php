@@ -30,6 +30,10 @@ Route::group(['middleware' => 'web'],function (){
     Route::get('/product/{comment}/edit','CommentController@edit');
     Route::patch('/product/{comment}/edit/store','CommentController@store');
 
+    Route::get('/api',function (){
+        return "hello";
+    })->middleware('throttle:3'); //default 60 request per minute
+
     Route::get('/', function () {
         return view('welcome');
     });
