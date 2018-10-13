@@ -35,6 +35,8 @@ Route::group(['middleware' => 'web'],function (){
         event(new UserWasBanned(new User()));
     });
 
+    Route::get('/vue', ['as'=>'vue', 'uses'=>'ProductController@vue']);
+
     Route::get('/category',['as'=>'category' , 'uses'=>'CategoryController@show']);
     Route::get('/category/{category}',['as'=>'single.category' , 'uses'=>'CategoryController@single_cat']);
     Route::get('category/product/{product}', ['as'=>'show.product', 'uses'=>'ProductController@show']);

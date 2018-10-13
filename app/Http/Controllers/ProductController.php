@@ -109,4 +109,9 @@ class ProductController extends Controller
     {
         //
     }
+
+    public function vue()
+    {
+        return view('vue');
+    }
 }
