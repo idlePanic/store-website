@@ -3,6 +3,7 @@
 <head>
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.2/css/bulma.css">
 
     <style>
         .completed{text-decoration: line-through;}
@@ -10,9 +11,18 @@
 </head>
 <body>
     <div id="app" class="container">
-        {{--<style>--}}
-            {{--[v-cloak]{display: none;}--}}
-        {{--</style>--}}
+
+        <tabs>
+            <tab name="About">
+                <h1>About</h1>
+            </tab>
+            <tab name="Contact">
+            <h1>Contact</h1>
+            </tab>
+            <tab name="Blog">
+            <h1>Blog</h1>
+            </tab>
+        </tabs>
 
         <div class="row">
             <h3>@{{fullname}}</h3><br>
@@ -72,6 +82,20 @@
 
 <script>
     // import {Vue} from "../../node_modules/vue/types/vue";
+
+    Vue.component('tabs',{
+        template: `
+            <div class="tabs">
+                <ul>
+                    <li class="is-active"><a>Picture</a></li>
+                    <li><a>Music</a></li>
+                    <li><a>Video</a></li>
+                    <li><a>Documentation</a></li>
+                </ul>
+            </div>
+            `,
+    });
+
     Vue.component('counter' , {
         template: '#counter-template',
         props: ['subject'],
