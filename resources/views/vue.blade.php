@@ -3,6 +3,10 @@
 <head>
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+    <style>
+        .completed{text-decoration: line-through;}
+    </style>
 </head>
 <body>
     <div id="app" class="container">
@@ -36,6 +40,12 @@
         <ul class="list-group">
             <li v-for="plan in plans">
                 <plan :plan="plan" @activate="setActive(plan)" :active="actived"></plan>
+            </li>
+        </ul>
+
+        <ul class="list-group">
+            <li :class="[task.completed ? 'completed' : '' ,'list-group-item']" v-for="task in tasks">
+                @{{task.body}} & @{{ task.completed }}
             </li>
         </ul>
     </div>
@@ -87,6 +97,12 @@
             first: 'Hamid',
             last: 'Pahlevani',
             // fullname: 'Hamid Pahlevani',
+
+            tasks:[
+                {body: 'Go to the restaurant' , completed: false},
+                {body: 'Go to the office' , completed: false},
+                {body: 'Go to the bank' , completed: true},
+            ],
 
             plans:[
                 {name:'Ultimate',price:500},
